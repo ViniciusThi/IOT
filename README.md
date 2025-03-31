@@ -3,6 +3,7 @@
 ## Índice
 - [Microcontroladores](#microcontroladores)
 - [Corrente Elétrica (AC e DC)](#corrente-elétrica)
+- [Componentes Eletrônicos](#componentes-eletrônicos)
 - [Resistores](#resistores)
 
 ## Microcontroladores
@@ -54,6 +55,94 @@
 - Componentes eletrônicos
 - Microcontroladores
 - Portas USB (5V)
+
+## Componentes Eletrônicos
+
+### Componentes Passivos
+
+#### Resistor
+- **Função:** Limitar o fluxo de corrente e dividir tensão
+- **Símbolo:** [━━━━]
+- **Aplicações:** Proteção de LEDs, divisores de tensão, limitação de corrente
+- **Unidade:** Ohm (Ω)
+
+#### Capacitor
+- **Função:** Armazenar carga elétrica temporariamente
+- **Símbolo:** [-| |-]
+- **Aplicações:** Filtros, fonte de alimentação, acoplamento/desacoplamento
+- **Unidade:** Farad (F)
+- **Tipos comuns:** Eletrolítico, cerâmico, poliéster
+
+#### Indutor
+- **Função:** Armazenar energia em campo magnético
+- **Símbolo:** [～～～]
+- **Aplicações:** Filtros, fontes chaveadas, transformadores
+- **Unidade:** Henry (H)
+
+### Componentes Semicondutores
+
+#### Diodo
+- **Função:** Permitir corrente em apenas uma direção
+- **Símbolo:** [|>|]
+- **Aplicações:** Retificação, proteção contra polaridade reversa
+- **Tipos comuns:** Retificador, LED, Zener
+
+#### LED (Diodo Emissor de Luz)
+- **Função:** Emitir luz quando energizado
+- **Símbolo:** [|>|•]
+- **Aplicações:** Indicadores, iluminação, displays
+- **Características:** Diferentes cores e intensidades
+
+#### Transistor
+- **Função:** Amplificar ou chavear sinais
+- **Tipos principais:** 
+  - BJT (NPN/PNP): Para amplificação
+  - MOSFET: Para chaveamento de potência
+- **Aplicações:** Amplificadores, chaves eletrônicas, controle
+
+### Componentes de Proteção
+
+#### Fusível
+- **Função:** Proteção contra sobrecorrente
+- **Símbolo:** [○─/─○]
+- **Aplicações:** Proteção de circuitos e equipamentos
+
+#### Varistor
+- **Função:** Proteção contra picos de tensão
+- **Símbolo:** [\/]
+- **Aplicações:** Proteção contra surtos
+
+### Componentes de Interface
+
+#### Chaves e Botões
+- **Função:** Interface mecânica para controle
+- **Tipos:** 
+  - Push-button: Acionamento momentâneo
+  - Toggle switch: Liga/desliga
+  - DIP switch: Múltiplas chaves pequenas
+
+#### Display
+- **Tipos comuns:**
+  - LCD: Display de cristal líquido
+  - 7 segmentos: Para números
+  - OLED: Display orgânico
+- **Aplicações:** Interface visual, mostrar informações
+
+### Sensores Comuns
+
+#### LDR (Resistor Dependente de Luz)
+- **Função:** Detectar intensidade luminosa
+- **Aplicações:** Controle de iluminação, fotômetros
+
+#### Termistor
+- **Função:** Medir temperatura
+- **Tipos:** NTC (coeficiente negativo), PTC (coeficiente positivo)
+- **Aplicações:** Controle de temperatura, proteção térmica
+
+#### Potenciômetro
+- **Função:** Resistor variável manual
+- **Aplicações:** Controle de volume, ajuste de sensibilidade
+- **Tipos:** Linear, logarítmico
 
 ## Resistores
 
