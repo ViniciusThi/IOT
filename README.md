@@ -73,6 +73,66 @@
 - Dourado: ±5% tolerância
 - Prata: ±10% tolerância
 
+### Tipos de Ligações
+
+#### Ligação em Série
+Na ligação em série, os componentes são conectados um após o outro, formando um único caminho para a corrente.
+
+**Características:**
+- A corrente é a mesma em todos os componentes
+- A tensão total é dividida entre os componentes
+- Se um componente falhar, todo o circuito para
+- A resistência total é a soma das resistências
+
+**Aplicações comuns:**
+- Árvore de LED de Natal (modelo antigo)
+- Baterias para aumentar a tensão
+- Resistores para dividir tensão
+- Chaves/interruptores de segurança
+
+**Vantagens:**
+- Fácil de calcular a resistência total
+- Bom para divisão de tensão
+- Circuito mais simples
+
+**Desvantagens:**
+- Se um componente falha, todo circuito para
+- Maior queda de tensão
+- Menor confiabilidade
+
+#### Ligação em Paralelo
+Na ligação em paralelo, os componentes são conectados lado a lado, com vários caminhos para a corrente.
+
+**Características:**
+- A tensão é a mesma em todos os componentes
+- A corrente total é dividida entre os componentes
+- Se um componente falhar, os outros continuam funcionando
+- A resistência total é menor que a menor resistência individual
+
+**Aplicações comuns:**
+- Tomadas residenciais
+- LEDs que precisam do mesmo brilho
+- Baterias para aumentar a corrente
+- Sensores redundantes
+
+**Vantagens:**
+- Mais confiável (redundância)
+- Mantém a tensão constante
+- Se um componente falha, os outros continuam funcionando
+
+**Desvantagens:**
+- Consumo maior de corrente
+- Cálculos mais complexos
+- Necessidade de fonte com maior capacidade de corrente
+
+#### Comparação Visual
+```
+Série:    [R1]--[R2]--[R3]-->
+Paralelo: [R1]-->
+         [R2]-->
+         [R3]-->
+```
+
 ### Cálculos Importantes
 
 #### Lei de Ohm
