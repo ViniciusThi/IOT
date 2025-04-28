@@ -1,6 +1,6 @@
 # Monitor de Condições Climáticas com Arduino
 
-Este projeto utiliza um Arduino para monitorar temperatura e umidade do ar, exibindo os valores em um display LCD e utilizando LEDs coloridos e um buzzer para indicar previsões climáticas baseadas em cálculos meteorológicos.
+Este projeto utiliza um Arduino para monitorar temperatura e umidade do ar, exibindo os valores em um display LCD e utilizando LEDs coloridos e um buzzer para indicar previsões climáticas baseadas em cálculos meteorológicos científicos.
 
 ## Componentes Necessários
 - Arduino Uno
@@ -32,9 +32,10 @@ Este projeto utiliza um Arduino para monitorar temperatura e umidade do ar, exib
 
 ### Sensor DHT22
 - VCC -> 5V
-- DATA -> Pino 2
+- SDA -> Pino 6
+- NC -> Não conectar
 - GND -> GND
-- Resistor de 10kΩ entre VCC e DATA
+- Resistor de 10kΩ entre VCC e SDA
 
 ### LEDs
 - LED Verde (dia bom) -> Pino 7 (com resistor de 220Ω para GND)
@@ -46,26 +47,40 @@ Este projeto utiliza um Arduino para monitorar temperatura e umidade do ar, exib
 - Terminal negativo -> GND
 
 ## Funcionamento
-O código lê a temperatura e umidade a cada 2 segundos e exibe no display LCD. Além disso:
+O código lê a temperatura e umidade a cada ciclo e exibe no display LCD, alternando entre diferentes telas com informações. Além disso:
 
-1. Calcula o ponto de orvalho e outras métricas para prever condições climáticas
-2. Ativa o LED verde quando as condições são ideais (20-28°C e umidade entre 40-70%)
-3. Ativa o LED amarelo quando a temperatura está acima de 32°C (calor intenso)
-4. Ativa o LED azul quando há previsão de chuva (baseada na proximidade do ponto de orvalho)
-5. Ativa o buzzer quando há previsão de chuva intensa (umidade acima de 85% e ponto de orvalho muito próximo)
+1. Calcula o ponto de orvalho usando a fórmula de Magnus-Tetens
+2. Determina condições climáticas com base em cálculos meteorológicos precisos
+3. Ativa o LED verde quando as condições são ideais (20-28°C e umidade entre 40-70%)
+4. Ativa o LED amarelo quando a temperatura está acima de 32°C (calor intenso)
+5. Ativa o LED azul quando há previsão de chuva (baseada na proximidade do ponto de orvalho)
+6. Ativa o buzzer quando há previsão de chuva intensa (umidade acima de 85% e ponto de orvalho muito próximo)
+7. Exibe o status atual no LCD (Dia agradável, Calor intenso, Possível chuva, Chuva intensa)
 
-## Cálculos Meteorológicos
-O projeto utiliza os seguintes cálculos para prever as condições climáticas:
+## Base Científica para os Cálculos
 
-- **Ponto de Orvalho**: Temperatura na qual o ar precisa ser resfriado para ficar saturado de vapor d'água, indicando condensação (chuva)
-- **Previsão de Chuva**: Quando a diferença entre a temperatura atual e o ponto de orvalho é menor que 2,5°C
-- **Previsão de Chuva Intensa**: Quando a diferença é menor que 1°C e a umidade está acima de 85%
-- **Calor Intenso**: Temperatura acima de 32°C
-- **Dia Bom**: Temperatura entre 20°C e 28°C com umidade entre 40% e 70%
+### Ponto de Orvalho
+O projeto utiliza a fórmula de Magnus-Tetens para calcular com precisão o ponto de orvalho, que é a temperatura na qual o vapor de água presente no ar condensa, formando orvalho. Esta é uma medida fundamental na meteorologia para prever condições climáticas.
+
+### Previsão de Chuva
+A previsão de chuva é baseada na diferença entre a temperatura ambiente e o ponto de orvalho:
+- Quando essa diferença é menor que 2,5°C, há possibilidade de chuva
+- Quando a diferença é menor que 1°C e a umidade está acima de 85%, há risco de chuva intensa
+
+### Conforto Térmico
+O projeto define como "dia bom" as condições consideradas ideais para conforto humano segundo estudos de conforto térmico:
+- Temperatura entre 20°C e 28°C
+- Umidade relativa entre 40% e 70%
+
+## Exibição de Informações
+O display LCD alterna entre três telas:
+1. Temperatura e umidade atuais
+2. Ponto de orvalho calculado
+3. Status das condições climáticas
 
 ## Bibliotecas Necessárias
 - LiquidCrystal
-- DHT sensor library
+- DHT
 
 ## Instalação
 1. Conecte os componentes conforme o esquema de ligações
