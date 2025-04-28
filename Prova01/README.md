@@ -1,14 +1,17 @@
-# Monitor de Temperatura e Umidade com Arduino
+# Monitor de Condições Climáticas com Arduino
 
-Este projeto utiliza um Arduino para monitorar temperatura e umidade do ar, exibindo os valores em um display LCD e acionando um alerta quando os valores ultrapassam os limites estabelecidos.
+Este projeto utiliza um Arduino para monitorar temperatura e umidade do ar, exibindo os valores em um display LCD e utilizando LEDs coloridos e um buzzer para indicar previsões climáticas baseadas em cálculos meteorológicos.
 
 ## Componentes Necessários
 - Arduino Uno
 - Display LCD 16x2
 - Sensor DHT22
 - Resistor de 10kΩ
-- LED (para alerta)
-- Resistor de 220Ω (para o LED)
+- LED Verde (dia bom)
+- LED Amarelo (calor intenso)
+- LED Azul (chuva)
+- Buzzer (alerta de chuva intensa)
+- Resistores de 220Ω (um para cada LED)
 - Jumpers
 
 ## Ligações
@@ -33,12 +36,32 @@ Este projeto utiliza um Arduino para monitorar temperatura e umidade do ar, exib
 - GND -> GND
 - Resistor de 10kΩ entre VCC e DATA
 
-### LED de Alerta
-- Anodo -> Pino 13
-- Catodo -> GND (com resistor de 220Ω)
+### LEDs
+- LED Verde (dia bom) -> Pino 7 (com resistor de 220Ω para GND)
+- LED Amarelo (calor intenso) -> Pino 8 (com resistor de 220Ω para GND)
+- LED Azul (chuva) -> Pino 9 (com resistor de 220Ω para GND)
+
+### Buzzer
+- Terminal positivo -> Pino 10
+- Terminal negativo -> GND
 
 ## Funcionamento
-O código lê a temperatura e umidade a cada 2 segundos e exibe no display LCD. Quando a temperatura ultrapassa 30°C ou a umidade ultrapassa 70%, o LED pisca como alerta.
+O código lê a temperatura e umidade a cada 2 segundos e exibe no display LCD. Além disso:
+
+1. Calcula o ponto de orvalho e outras métricas para prever condições climáticas
+2. Ativa o LED verde quando as condições são ideais (20-28°C e umidade entre 40-70%)
+3. Ativa o LED amarelo quando a temperatura está acima de 32°C (calor intenso)
+4. Ativa o LED azul quando há previsão de chuva (baseada na proximidade do ponto de orvalho)
+5. Ativa o buzzer quando há previsão de chuva intensa (umidade acima de 85% e ponto de orvalho muito próximo)
+
+## Cálculos Meteorológicos
+O projeto utiliza os seguintes cálculos para prever as condições climáticas:
+
+- **Ponto de Orvalho**: Temperatura na qual o ar precisa ser resfriado para ficar saturado de vapor d'água, indicando condensação (chuva)
+- **Previsão de Chuva**: Quando a diferença entre a temperatura atual e o ponto de orvalho é menor que 2,5°C
+- **Previsão de Chuva Intensa**: Quando a diferença é menor que 1°C e a umidade está acima de 85%
+- **Calor Intenso**: Temperatura acima de 32°C
+- **Dia Bom**: Temperatura entre 20°C e 28°C com umidade entre 40% e 70%
 
 ## Bibliotecas Necessárias
 - LiquidCrystal
