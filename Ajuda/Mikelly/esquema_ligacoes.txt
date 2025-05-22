@@ -9,7 +9,7 @@ ARDUINO UNO - PINAGEM:
 │             │             │              │
 │  Pin 0  RX  │  A0  ──────→│  5V  ──────→ │
 │  Pin 1  TX  │  A1         │  3.3V        │
-│  Pin 2  ───→│  A2         │  GND ──────→ │
+│  Pin 2      │  A1  ──────→│  GND ──────→ │
 │  Pin 3      │  A3         │  VIN         │
 │  Pin 4      │  A4         │              │
 │  Pin 5      │  A5         │              │
@@ -36,15 +36,7 @@ ARDUINO UNO - PINAGEM:
    │ Signal (Laranja) ───→│    Pin 9    │
    └─────────────┘        └─────────────┘
 
-2. SENSOR DE CHUVA:
-   ┌─────────────┐        ┌─────────────┐
-   │ Rain Sensor │        │ Arduino Uno │
-   │             │        │             │
-   │ VCC         ────────→│    5V       │
-   │ GND         ────────→│    GND      │
-   │ DO (Digital)────────→│    Pin 2    │
-   │ AO (não usar)        │             │
-   └─────────────┘        └─────────────┘
+2. POTENCIÔMETRO (Simulador de Chuva):   ┌─────────────┐        ┌─────────────┐   │Potenciômetro│        │ Arduino Uno │   │             │        │             │   │ Pino 1      ────────→│    5V       │   │ Pino 2      ────────→│    GND      │   │ Pino Central────────→│    Pin A1   │   │             │        │             │   └─────────────┘        └─────────────┘
 
 3. SENSOR LDR (Divisor de Tensão):
    ┌─────────────┐    ┌──────────┐    ┌─────────────┐
@@ -92,15 +84,7 @@ Distribuição:
                     LISTA DE VERIFICAÇÃO
 ================================================================
 
-□ Servo motor conectado corretamente (cores dos fios)
-□ Sensor de chuva no pino digital 2
-□ LDR no pino analógico A0 com resistor de 10kΩ
-□ LED verde no pino 13 com resistor de 220Ω
-□ LED vermelho no pino 12 com resistor de 220Ω
-□ Alimentação 5V distribuída para todos os sensores
-□ GND comum para todos os componentes
-□ Protoboard organizada e conexões firmes
-□ Cabo USB conectado para programação
+□ Servo motor conectado corretamente (cores dos fios)□ Potenciômetro no pino analógico A1□ LDR no pino analógico A0 com resistor de 10kΩ□ LED verde no pino 13 com resistor de 220Ω□ LED vermelho no pino 12 com resistor de 220Ω□ Alimentação 5V distribuída para todos os componentes□ GND comum para todos os componentes□ Protoboard organizada e conexões firmes□ Cabo USB conectado para programação
 
 ================================================================
                       DICAS IMPORTANTES
@@ -115,10 +99,7 @@ Distribuição:
     - Marrom/Preto = GND
     - Laranja/Amarelo = Signal
 
-⚠️  SENSOR DE CHUVA:
-    - Ajustar sensibilidade pelo potenciômetro
-    - DO = saída digital (HIGH/LOW)
-    - AO = saída analógica (não utilizada)
+⚠️  POTENCIÔMETRO:    - Pino central vai para A1    - Extremidades vão para 5V e GND    - Girar para simular chuva (valor baixo = chuva)
 
 ⚠️  RESISTOR LDR:
     - 10kΩ (cores: marrom-preto-laranja)

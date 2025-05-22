@@ -4,20 +4,11 @@ Um sistema automatizado que protege suas plantas da chuva e durante a noite, usa
 
 ## 📋 Descrição do Projeto
 
-Este projeto cria um sistema inteligente que:
-- **Estende automaticamente** uma cobertura quando detecta chuva
-- **Protege as plantas** durante a noite (ambiente escuro)
-- **Retrai a cobertura** quando há sol e não está chovendo
-- **Indica o status** através de LEDs coloridos
+Este projeto cria um sistema inteligente que:- **Estende automaticamente** uma cobertura quando simula chuva (potenciômetro)- **Protege as plantas** durante a noite (ambiente escuro)- **Retrai a cobertura** quando há sol e não está chovendo- **Indica o status** através de LEDs coloridos
 
 ## 🔧 Componentes Necessários
 
-### Componentes Principais:
-- **1x Arduino Uno R3**
-- **1x Servo Motor SG90** (micro servo 9g)
-- **1x Sensor de Chuva** (Rain Sensor Module)
-- **1x Sensor LDR** (Light Dependent Resistor)
-- **1x Resistor 10kΩ**
+### Componentes Principais:- **1x Arduino Uno R3**- **1x Servo Motor SG90** (micro servo 9g)- **1x Potenciômetro 10kΩ** (para simular chuva)- **1x Sensor LDR** (Light Dependent Resistor)- **1x Resistor 10kΩ**
 
 ### Componentes Opcionais (indicadores visuais):
 - **1x LED Verde** (5mm)
@@ -40,13 +31,7 @@ GND (Marrom)   →   GND
 Signal (Laranja) → Pino 9
 ```
 
-### Sensor de Chuva:
-```
-Sensor Chuva  →    Arduino Uno
-VCC           →    5V
-GND           →    GND
-DO (Digital)  →    Pino 2
-```
+### Potenciômetro (Simulador de Chuva):```Potenciômetro →    Arduino UnoPino Central  →    Pino A1Pino 1        →    5VPino 2        →    GND```
 
 ### Sensor LDR:
 ```
@@ -69,17 +54,7 @@ Cátodo (-)    →    GND
 
 ## 📐 Diagrama de Montagem
 
-```
-Arduino Uno
-    |
-    ├─ Pino 2    ←→  Sensor de Chuva (DO)
-    ├─ Pino 9    ←→  Servo Motor (Signal)
-    ├─ Pino 12   ←→  LED Vermelho (+ Resistor 220Ω)
-    ├─ Pino 13   ←→  LED Verde (+ Resistor 220Ω)
-    ├─ Pino A0   ←→  LDR (+ Resistor 10kΩ para GND)
-    ├─ 5V        ←→  VCC dos sensores e servo
-    └─ GND       ←→  GND comum
-```
+```Arduino Uno    |    ├─ Pino A1   ←→  Potenciômetro (Pino Central)    ├─ Pino 9    ←→  Servo Motor (Signal)    ├─ Pino 12   ←→  LED Vermelho (+ Resistor 220Ω)    ├─ Pino 13   ←→  LED Verde (+ Resistor 220Ω)    ├─ Pino A0   ←→  LDR (+ Resistor 10kΩ para GND)    ├─ 5V        ←→  VCC dos sensores, servo e potenciômetro    └─ GND       ←→  GND comum```
 
 ## 🚀 Como Usar
 
@@ -96,17 +71,11 @@ Arduino Uno
 4. Selecione a porta COM correta
 5. Clique em "Upload" para enviar o código
 
-### 3. Configuração:
-- Ajuste a variável `limiteEscuridao` conforme o ambiente (linha 35)
-- Modifique `posicaoAberta` e `posicaoFechada` conforme sua montagem
+### 3. Configuração:- Ajuste a variável `limiteEscuridao` conforme o ambiente- Ajuste a variável `limiteChuva` para sensibilidade do potenciômetro- Modifique `posicaoAberta` e `posicaoFechada` conforme sua montagem
 
 ## ⚙️ Como Funciona
 
-### Lógica do Sistema:
-1. **Sensor de Chuva**: Quando detecta umidade, o sistema estende a cobertura
-2. **Sensor LDR**: Quando escurece (noite), o sistema protege as plantas
-3. **Servo Motor**: Move a cobertura suavemente entre as posições
-4. **LEDs**: Indicam o status atual do sistema
+### Lógica do Sistema:1. **Potenciômetro**: Quando o valor é baixo (girado para esquerda), simula chuva e estende a cobertura2. **Sensor LDR**: Quando escurece (noite), o sistema protege as plantas3. **Servo Motor**: Move a cobertura suavemente entre as posições4. **LEDs**: Indicam o status atual do sistema
 
 ### Estados do Sistema:
 - 🟢 **LED Verde**: Cobertura retraída (plantas recebendo luz)
