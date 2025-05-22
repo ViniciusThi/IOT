@@ -1,0 +1,127 @@
+================================================================
+           ESQUEMA DETALHADO DE LIGAÇÕES
+       Sistema Inteligente de Cobertura para Plantações
+================================================================
+
+ARDUINO UNO - PINAGEM:
+┌─────────────────────────────────────────┐
+│  DIGITAL    │  ANALÓGICO  │  ALIMENTAÇÃO │
+│             │             │              │
+│  Pin 0  RX  │  A0  ──────→│  5V  ──────→ │
+│  Pin 1  TX  │  A1         │  3.3V        │
+│  Pin 2  ───→│  A2         │  GND ──────→ │
+│  Pin 3      │  A3         │  VIN         │
+│  Pin 4      │  A4         │              │
+│  Pin 5      │  A5         │              │
+│  Pin 6      │             │              │
+│  Pin 7      │             │              │
+│  Pin 8      │             │              │
+│  Pin 9  ───→│             │              │
+│  Pin 10     │             │              │
+│  Pin 11     │             │              │
+│  Pin 12 ───→│             │              │
+│  Pin 13 ───→│             │              │
+└─────────────────────────────────────────┘
+
+================================================================
+                    CONEXÕES DETALHADAS
+================================================================
+
+1. SERVO MOTOR SG90:
+   ┌─────────────┐        ┌─────────────┐
+   │  SG90       │        │ Arduino Uno │
+   │             │        │             │
+   │ VCC (Vermelho)  ───→ │    5V       │
+   │ GND (Marrom)    ───→ │    GND      │
+   │ Signal (Laranja) ───→│    Pin 9    │
+   └─────────────┘        └─────────────┘
+
+2. SENSOR DE CHUVA:
+   ┌─────────────┐        ┌─────────────┐
+   │ Rain Sensor │        │ Arduino Uno │
+   │             │        │             │
+   │ VCC         ────────→│    5V       │
+   │ GND         ────────→│    GND      │
+   │ DO (Digital)────────→│    Pin 2    │
+   │ AO (não usar)        │             │
+   └─────────────┘        └─────────────┘
+
+3. SENSOR LDR (Divisor de Tensão):
+   ┌─────────────┐    ┌──────────┐    ┌─────────────┐
+   │     5V      │────│   LDR    │────│    Pin A0   │
+   │             │    └──────────┘    │             │
+   │             │           │        │ Arduino Uno │
+   │             │    ┌──────────┐    │             │
+   │    GND      │────│ 10kΩ     │────│             │
+   └─────────────┘    └──────────┘    └─────────────┘
+
+4. LED VERDE (Indicador):
+   ┌─────────────┐    ┌──────────┐    ┌─────────────┐
+   │   Pin 13    │────│  220Ω    │────│ LED Verde + │
+   │             │    └──────────┘    │             │
+   │ Arduino Uno │                    │ LED Verde - │
+   │             │                    │             │
+   │    GND      │────────────────────│             │
+   └─────────────┘                    └─────────────┘
+
+5. LED VERMELHO (Indicador):
+   ┌─────────────┐    ┌──────────┐    ┌─────────────┐
+   │   Pin 12    │────│  220Ω    │────│LED Vermelho+│
+   │             │    └──────────┘    │             │
+   │ Arduino Uno │                    │LED Vermelho-│
+   │             │                    │             │
+   │    GND      │────────────────────│             │
+   └─────────────┘                    └─────────────┘
+
+================================================================
+                 PROTOBOARD - ORGANIZAÇÃO
+================================================================
+
+Linha de Alimentação (+):
+5V do Arduino ───→ Linha vermelha da protoboard
+
+Linha de Terra (-):
+GND do Arduino ───→ Linha azul/preta da protoboard
+
+Distribuição:
+- VCC dos sensores conectam na linha (+)
+- GND dos sensores conectam na linha (-)
+- Resistores e componentes nas fileiras centrais
+
+================================================================
+                    LISTA DE VERIFICAÇÃO
+================================================================
+
+□ Servo motor conectado corretamente (cores dos fios)
+□ Sensor de chuva no pino digital 2
+□ LDR no pino analógico A0 com resistor de 10kΩ
+□ LED verde no pino 13 com resistor de 220Ω
+□ LED vermelho no pino 12 com resistor de 220Ω
+□ Alimentação 5V distribuída para todos os sensores
+□ GND comum para todos os componentes
+□ Protoboard organizada e conexões firmes
+□ Cabo USB conectado para programação
+
+================================================================
+                      DICAS IMPORTANTES
+================================================================
+
+⚠️  POLARIDADE DOS LEDS:
+    - Perna longa = Ânodo (+) → vai para o resistor
+    - Perna curta = Cátodo (-) → vai para GND
+
+⚠️  SERVO MOTOR:
+    - Vermelho = VCC (5V)
+    - Marrom/Preto = GND
+    - Laranja/Amarelo = Signal
+
+⚠️  SENSOR DE CHUVA:
+    - Ajustar sensibilidade pelo potenciômetro
+    - DO = saída digital (HIGH/LOW)
+    - AO = saída analógica (não utilizada)
+
+⚠️  RESISTOR LDR:
+    - 10kΩ (cores: marrom-preto-laranja)
+    - Forma divisor de tensão com o LDR
+
+================================================================ 
