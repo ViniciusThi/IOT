@@ -1,0 +1,19 @@
+[[pins]]
+# Configuração do Sensor HC-SR04
+trigger = 5
+echo = 18
+
+# Configuração dos LEDs
+led_verde = 26
+led_vermelho = 27
+
+[hc-sr04]
+trigger = 5
+echo = 18
+
+[led.verde]
+pin = 26
+color = "green"
+
+[led.vermelho]
+pin = 27 

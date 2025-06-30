@@ -1,0 +1,16 @@
+[[pins]]
+# Configuração do DHT22
+dht22 = 23
+
+# Configuração do LCD I2C
+sda = 21
+scl = 22
+
+[dht22]
+temperature = 25
+humidity = 50
+
+[i2c]
+sda = 21
+scl = 22
+frequency = 100000 

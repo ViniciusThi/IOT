@@ -1,0 +1,14 @@
+[[pins]]
+# Configuração do Servo
+servo = 13
+
+# Configuração do Potenciômetro
+potentiometer = 34
+
+[servo]
+type = "SG90"
+frequency = 50
+
+[potentiometer]
+min = 0
+max = 4095 
