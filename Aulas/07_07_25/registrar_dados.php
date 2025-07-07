@@ -6,9 +6,7 @@
     $luminosidade = isset($_GET['luminosidade']) ? intval($_GET['luminosidade']) : null;
 
     if($temperatura !== null && $umidade !== null && $luminosidade !== null){
-
         $stmt = $conn->prepare("INSERT INTO sensores (temperatura, umidade, luminosidade) VALUES (?, ?, ?)");
-
         $stmt->bind_param("ddi", $temperatura, $umidade, $luminosidade);
 
         if($stmt->execute()){
